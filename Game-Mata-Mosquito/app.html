@@ -23,14 +23,17 @@
             <img id="v3" src="./imagens/coracao_cheio.png" alt="">
         </div>
 
-        <div class="cronometro">Tempo de Vida</div>
+        <div class="cronometro">Tempo Restante: <span id="cronometro"></div>
     </div>
 
     
     <script>
+
+        document.getElementById('cronometro').innerHTML = tempo
+
         posicaoRondomica()
 
-        setInterval(function() {
+        var criaMosca = setInterval(function() {
             posicaoRondomica()
         }, 2000)
     </script>
