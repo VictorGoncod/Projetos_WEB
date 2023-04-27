@@ -26,7 +26,7 @@ function posicaoRondomica() {
 
     var mosca = document.createElement('img')
     mosca.src = '../Game-Mata-Mosquito/imagens/mosca.png'
-    mosca.className = tamanhoAleatorio()
+    mosca.className = tamanhoAleatorio() + ' ' + ladoAleatorio()
     mosca.style.left = posicaoX + 'px'
     mosca.style.top = posicaoY + 'px'
     mosca.style.position = 'absolute'
@@ -47,5 +47,17 @@ function tamanhoAleatorio() {
 
         case 2:
             return 'mosca2'
+    }
+}
+
+function ladoAleatorio() {
+    var classe = Math.floor(Math.random() * 2)
+    
+    switch(classe) {
+        case 0:
+            return 'ladoA'
+        
+        case 1:
+            return 'ladoB'
     }
 }
