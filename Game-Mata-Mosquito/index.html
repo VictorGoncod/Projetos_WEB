@@ -18,7 +18,7 @@
                 alert('selecione um nível para iniciar o jogo')
                 return false
             }
-            alert(nivel)
+            window.location.href = "app.html?" + nivel
         }
     </script>
 </head>
@@ -37,8 +37,9 @@
             <div class="col">
                 <div class="d-flex justify-content-center">
                     <div class="mb-2">
-                        <select>
-                            <option class="frorm-control" id="nivel" value="">-- Selecionar o Nivel</option>
+                        <select class="frorm-control" id="nivel">
+                            
+                            <option value="">-- Selecionar o Nivel</option>
 
                             <option value="normal">-- Selecionar o Normal</option>
                             <option value="dificil">-- Selecionar o Difícil</option>
