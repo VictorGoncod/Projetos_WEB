@@ -8,7 +8,7 @@ class Despesas {
         this.valor = valor
     }
 
-    validardados() {
+    validarDados() {
         for(let i in this) {
             if(this[i] == undefined || this[i] == '' || this[i] == null ) {
                 return false
@@ -63,6 +63,8 @@ class Bd {
             despesas.push(despesa)
         }
 
+        return despesas
+
     }
 }
 
@@ -88,7 +90,7 @@ function cadastrarDespesa() {
         valor.value
     )
 
-    if (despesa.validardados()) {
+    if (despesa.validarDados()) {
         bd.gravar(despesa)
 
         document.getElementById('modal_titulo').innerHTML = 'Registro inserido com sucesso'
@@ -99,10 +101,12 @@ function cadastrarDespesa() {
 
         //dialogo de sucesso
         $('#modalRegistraDespesa').modal('show')
+
+
     }else {
 
-        document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
         document.getElementById('modal_titulo').innerHTML = 'Erro na Inclusão do Registro'
+        document.getElementById('modal_titulo_div').className = 'modal-header text-danger'
         document.getElementById('modal_conteudo').innerHTML = 'Erro na Gravação, Verifique se todos os campos foram preenchidos corretamente'
         document.getElementById('modal_btn').innerHTML = 'Voltar e Corrigir'
         document.getElementById('modal_btn').className = 'btn btn-danger'
@@ -125,10 +129,10 @@ function carregaListaDespesas() {
     despesas.forEach(function(d) {
         
         //criando a linha (tr)
-        let linha = listaDespesas.insertRow()
+        var linha = listaDespesas.insertRow()
 
         //criar as colunas 
-        linha.insertCell(0).innerHTML = '${d.dia}/${d.mes}/${d.ano}'
+        linha.insertCell(0).innerHTML = `${d.dia}/${d.mes}/${d.ano}`
 
         //ajusta o tipo
         switch(d.tipo) {
@@ -146,5 +150,6 @@ function carregaListaDespesas() {
         linha.insertCell(1).innerHTML = d.tipo
         linha.insertCell(2).innerHTML = d.descricao
         linha.insertCell(3).innerHTML = d.valor
+        console.log(d)
     })
 }
