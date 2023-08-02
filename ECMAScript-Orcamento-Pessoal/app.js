@@ -91,16 +91,19 @@ class Bd {
 
         //dia
         if(despesa.dia != '') {
+            console.log('filtro do dia')
             despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
         }
 
         //tipo
         if(despesa.tipo != '') {
+            console.log('filtro do tipo')
             despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
         }
 
         //descricao
         if(despesa.descricao != '') {
+            console.log('filtro do descricao')
             despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
         }
 
