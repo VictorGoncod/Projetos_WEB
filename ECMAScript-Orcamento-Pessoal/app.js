@@ -71,20 +71,40 @@ class Bd {
 
         let despesasFiltradas = Array()
 
-        this.recuperaTodosRegistros()
+        despesasFiltradas = this.recuperaTodosRegistros()
+
+        console.log(despesa)
 
         console.log(despesasFiltradas)
 
         //ano
-        despesasFiltradas.filter(d => d.ano == despesa.ano)
+        if(despesa.ano != '') {
+            console.log('filtro do ano')
+            despesasFiltradas = despesasFiltradas.filter(d => d.ano == despesa.ano)
+        }
 
         //mes
+        if(despesa.mes != '') {
+            console.log('filtro do mes')
+            despesasFiltradas = despesasFiltradas.filter(d => d.mes == despesa.mes)
+        }
 
         //dia
+        if(despesa.dia != '') {
+            despesasFiltradas = despesasFiltradas.filter(d => d.dia == despesa.dia)
+        }
 
         //tipo
+        if(despesa.tipo != '') {
+            despesasFiltradas = despesasFiltradas.filter(d => d.tipo == despesa.tipo)
+        }
 
         //descricao
+        if(despesa.descricao != '') {
+            despesasFiltradas = despesasFiltradas.filter(d => d.descricao == despesa.descricao)
+        }
+
+        console.log(despesasFiltradas)
     }
 }
 
