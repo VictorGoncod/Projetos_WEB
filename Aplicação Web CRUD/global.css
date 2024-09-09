@@ -17,7 +17,7 @@ body {
 }
 .clear {
     background: transparent;
-    border: 1px solid white;
+    border: none;
     color: white;
 }
 .solid {
@@ -34,6 +34,9 @@ body {
     color: white;
     background: red;
     display: none;
+}
+button {
+    cursor: pointer;
 }
 button:active {
     opacity: 0.8;
