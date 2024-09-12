@@ -12,22 +12,45 @@ function onChangePassword() {
     form.passwordRequiredError().style.display = password ? "none" : "block";
 
     form.passwordMinLengthError().style.display = password.length >= 6 ? "none" : "block";
-    
+
     validatePasswordsMatch();
     toggleRegisterButtonDisable();
 }
 
 function onChangeConfirmPassword() {
-    
     validatePasswordsMatch();
     toggleRegisterButtonDisable();
+}
+
+function register() {
+    showLoading();
+
+    const email = form.email().value;
+    const password = form.password().value;
+    firebase.auth().createUserWithEmailAndPassword(
+        email, password
+    ).then(() => {
+        hideLoading();
+        window.location.href = "../../pages/home/home.html";
+    }).catch(error => {
+        hideLoading();
+        alert(getErrorMessage(error));
+    })
+}
+
+function getErrorMessage(error) {
+    if (error.code == "auth/email-already-in-use") {
+        return "Email já está em uso";
+    }
+    return error.message;
 }
 
 function validatePasswordsMatch() {
     const password = form.password().value;
     const confirmPassword = form.confirmPassword().value;
 
-    form.confirmPasswordDoesntMatchError().style.display = password == confirmPassword ? "none" : "block";
+    form.confirmPasswordDoesntMatchError().style.display =
+        password == confirmPassword ? "none" : "block";
 }
 
 function toggleRegisterButtonDisable() {
@@ -36,7 +59,7 @@ function toggleRegisterButtonDisable() {
 
 function isFormValid() {
     const email = form.email().value;
-    if (!email || !validadeEmail(email)) {
+    if (!email || !validateEmail(email)) {
         return false;
     }
 
@@ -46,7 +69,7 @@ function isFormValid() {
     }
 
     const confirmPassword = form.confirmPassword().value;
-    if (!password || confirmPassword) {
+    if (password != confirmPassword) {
         return false;
     }
 
@@ -62,5 +85,5 @@ const form = {
     password: () => document.getElementById('password'),
     passwordMinLengthError: () => document.getElementById('password-min-length-error'),
     passwordRequiredError: () => document.getElementById('password-required-error'),
-    registerButton: () => document.getElementById('register-button'),
+    registerButton: () => document.getElementById('register-button')
 }
