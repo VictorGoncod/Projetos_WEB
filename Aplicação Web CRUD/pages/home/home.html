@@ -11,6 +11,7 @@
     <script src="../../firebase-init.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore-compat.js"></script>
 
     <title>Home - Controle de Gastos</title>
     
@@ -20,32 +21,7 @@
     <header>
         <button type="button" class="clear" onclick="logout()">Sair</button>
     </header>
-    <ol>
-        <li class="expense">
-            <b>01/01/2022</b>
-            <p>R$ 10,00</p>
-            <p>Supermercado</p>
-        </li>
-        <li class="income">
-            <b>14/10/2023</b>
-            <p>EUR 609,00</p>
-            <p>Salario</p>
-            <p>Empresa A</p>
-        </li>
-        <li class="expense">
-            <b>01/01/2021</b>
-            <p>USD 150,00</p>
-            <p>Trasporte</p>
-            <p>Metrô ida e volta</p>
-        </li>
-        <li class="expense">
-            <b>01/02/2023</b>
-            <p>EUR 60,00</p>
-            <p>Aluguel</p>
-            <p>Mensalidade</p>
-        </li>
-        
-    </ol>
+    <ol id="transactions"></ol>
 
     <button class="fab fixed bottom right">+</button>
     
