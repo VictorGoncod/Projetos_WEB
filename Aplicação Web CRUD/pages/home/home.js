@@ -6,11 +6,19 @@ function logout() {
     })
 }
 
+firebase.auth().onAuthStateChange(user => {
+    if (user){
+        findTransactions(user);
+    }
+})
+
 findTransactions();
 
-function findTransactions() {
+function findTransactions(user) {
     firebase.firestore()
         .collection('transactions')
+        .where('user.uid', '==', user.uid)
+        .orderBy('date', 'desc')
         .get()
         .then(snapshot => {
             const transactions = snapshot.docs.map(doc => doc.data());
@@ -55,30 +63,3 @@ function formatMoney(money) {
     return `${money.currency} ${money.value.toFixed(2)}`
 }
 
-const fakeTransactions = [{
-    type: 'expense',
-    date: '2022-01-01',
-    money: {
-        currency: 'R$',
-        value: 10.00,
-    },
-    transactionType: 'Supermercado'
-},{
-    type: 'income',
-    date: '2023-10-14',
-    money: {
-        currency: 'R$',
-        value: 609.00,
-    },
-    transactionType: 'Salario',
-    description: 'Empresa A'
-},{
-    type: 'expense',
-    date: '2023-10-14',
-    money: {
-        currency: 'R$',
-        value: 609.00,
-    },
-    transactionType: 'Salario',
-    description: 'Empresa A'
-}]
