@@ -12,15 +12,25 @@ ol li {
     padding: 8px 16px;
     border-bottom: 1px solid gray;
 }
-ol li:hover{
+ol li:hover {
     opacity: 0.8;
 }
-ol li.expense{
-    border-left: 5px solid red;
+ol li.expense {
+    border-left: 10px solid red;
 }
-ol li.income{
-    border-left: 5px solid green;
+ol li.income {
+    border-left: 10px solid green;
 }
+ol li:hover button.danger {
+    display: block;
+}
+
+button.danger {
+    width: auto;
+    float: right;
+    display: none;
+}
+
 p {
     margin: 4px 0;
 }
