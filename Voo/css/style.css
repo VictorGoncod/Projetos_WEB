@@ -11,6 +11,7 @@ body{
 .interface{
     max-width: 1280px;
     margin: 0 auto;
+    padding: 0 4%;
 }
 header .btn-contato button, .hero-site button, .hoteis button{
     font-size: 18px;
@@ -26,6 +27,7 @@ header .btn-contato button:hover, .hero-site button:hover, .hoteis button:hover{
 }
 
 /* estilo do header */
+
 header{
     width: 100%;
     padding: 40px 0;
@@ -75,6 +77,7 @@ header.rolar .logo .logo-preta{
 }
 
 /* -------------------------- */
+
 .menu-desktop nav ul{
     list-style-type: none;
 }
@@ -97,6 +100,7 @@ header .btn-contato button{
 }
 
 /* estilo do hero */
+
 section.hero-site{
     height: 100vh;
     background-image: url(../img/bg-inicio-site.jpg);
