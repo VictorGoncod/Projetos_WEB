@@ -3,7 +3,11 @@
 
         header .menu-desktop, header .btn-contato{
             display: none;
-        }        
+        }
+        header .btn-menu-mob{
+            display: block;
+        }
+                
 }
 
 @media (max-width: 878px) {

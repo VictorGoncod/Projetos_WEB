@@ -78,6 +78,35 @@ header.rolar .logo .logo-preta{
 
 /* -------------------------- */
 
+/* estilo do botão mobile */
+
+header .btn-menu-mob{
+    display: none;
+}
+
+header .btn-menu-mob div{
+    background-color: #fff;
+    height: 3px;
+    margin: 10px 0;
+    transition: 0.3s;
+}
+header .btn-menu-mob .line-menumob-1{
+    width: 30px;
+}
+header .btn-menu-mob .line-menumob-2{
+    width: 20px;
+}
+header.rolar .btn-menu-mob div{
+    background-color: #000;
+}
+header .btn-menu-mob .line-menumob-1.ativo1{
+    transform: rotate(45deg) translate(30%);
+}
+header .btn-menu-mob .line-menumob-2.ativo2{
+    transform: rotate(-45deg) translate(30%);
+    width: 30px;
+}
+
 .menu-desktop nav ul{
     list-style-type: none;
 }
