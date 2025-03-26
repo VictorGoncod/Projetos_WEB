@@ -7,4 +7,5 @@ let menuMobile = document.querySelector('#menu-mobile');
 btnMenuMob.addEventListener("click", () => {
     line1.classList.toggle('ativo1')
     line2.classList.toggle('ativo2')
+    menuMobile.classList.toggle('abrir')
 })
